@@ -1,0 +1,25 @@
+package jsonxml;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+import org.json.XML;
+
+public class main {
+
+	public static void main(String[] args) {
+		String xml="<?xml version='1.0' encoding='UTF-8'?><o><array json_class='array'><e json_type='number'>1</e><e json_type='number'>2</e><e json_type='number'>3</e></array><boolean json_type='boolean'>true</boolean><double json_type='number'>2.0</double><integer json_type='number'>1</integer><name json_type='string'>JSON</name><nested json_class='object'><id json_type='number'>42</id></nested></o>";
+		String json="{\"o\":{\"boolean\":{\"json_type\":\"boolean\",\"content\":true},\"array\":{\"e\":[{\"json_type\":\"number\",\"content\":1},{\"json_type\":\"number\",\"content\":2},{\"json_type\":\"number\",\"content\":3}],\"json_class\":\"array\"},\"double\":{\"json_type\":\"number\",\"content\":2},\"name\":{\"json_type\":\"string\",\"content\":\"JSON\"},\"integer\":{\"json_type\":\"number\",\"content\":1},\"nested\":{\"json_class\":\"object\",\"id\":{\"json_type\":\"number\",\"content\":42}}}}";
+		
+		//XML to JSON
+		JSONObject jsonObject = XML.toJSONObject(xml);
+		System.out.println(jsonObject);
+		
+		
+		//JSON TO STRING
+		JSONObject jsona = new JSONObject(json);
+		 xml = XML.toString(jsona);
+		System.out.println(xml);
+
+	}
+
+}
